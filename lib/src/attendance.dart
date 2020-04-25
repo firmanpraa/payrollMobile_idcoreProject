@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Attendance extends StatefulWidget {
+  static String route= '/attendance';
+
   _attendanceState createState() => _attendanceState();
 }
 

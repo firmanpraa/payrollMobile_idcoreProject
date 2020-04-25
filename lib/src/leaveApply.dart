@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class LeaveApply extends StatefulWidget{
+  static String route= '/leave';
   _leaveStatePage createState() => _leaveStatePage();
 }
 

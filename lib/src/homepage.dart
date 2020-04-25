@@ -1,29 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutterapppayrollauth/src/attendance.dart';
-import 'package:flutterapppayrollauth/src/claimApply.dart';
-import 'package:flutterapppayrollauth/src/customerVisit.dart';
-import 'package:flutterapppayrollauth/src/leaveApply.dart';
-import 'package:flutterapppayrollauth/src/message.dart';
-import 'package:flutterapppayrollauth/src/overtimeApply.dart';
 
-void main(List<String> args) {
-  runApp(
-    new MaterialApp(
-      home: HomePage(),
-      debugShowCheckedModeBanner: false,
-      initialRoute: '/',
-      routes: <String, WidgetBuilder>{
-        '/attendance': (BuildContext context) => Attendance(),
-        '/customer': (BuildContext context) => CustomerVisit(),
-        '/leave': (BuildContext context) => LeaveApply(),
-        '/overtime': (BuildContext context) => OvertimeApply(),
-        '/claim': (BuildContext context) => ClaimApply(),
-        '/message': (BuildContext context) => Message()
-      },
-    ),
-  );
-}
 
 class HomePage extends StatefulWidget {
   _homePageState createState() => _homePageState();

@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class OvertimeApply extends StatefulWidget{
+  static String route= '/over';
   _overtimeStatePage createState() => _overtimeStatePage();
 }
 

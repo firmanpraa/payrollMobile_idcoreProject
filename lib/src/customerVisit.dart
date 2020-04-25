@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomerVisit extends StatefulWidget{
+  static String route= '/customer';
   _customerStatePage createState() => _customerStatePage();
 }
 

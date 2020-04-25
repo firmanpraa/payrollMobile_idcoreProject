@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ClaimApply extends StatefulWidget{
+  static String route= '/claim';
   _claimStatePage createState() => _claimStatePage();
 }
 

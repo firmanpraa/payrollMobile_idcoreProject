@@ -1,7 +1,31 @@
 import 'package:flutter/material.dart';
+import 'package:flutterapppayrollauth/src/attendance.dart';
+import 'package:flutterapppayrollauth/src/claimApply.dart';
+import 'package:flutterapppayrollauth/src/customerVisit.dart';
+import 'package:flutterapppayrollauth/src/homepage.dart';
+import 'package:flutterapppayrollauth/src/leaveApply.dart';
 import 'package:flutterapppayrollauth/src/loadingPage.dart';
+import 'package:flutterapppayrollauth/src/message.dart';
+import 'package:flutterapppayrollauth/src/overtimeApply.dart';
 
-void main() => runApp(MyApp());
+
+void main(List<String> args) {
+  runApp(
+    new MaterialApp(
+      debugShowCheckedModeBanner: false,
+      initialRoute: '/',
+      routes: <String, WidgetBuilder>{
+        '/': (context) => LoadingPage(),
+        '/attendance': (context) => Attendance(),
+        '/customer': (context) => CustomerVisit(),
+        '/leave': (context) => LeaveApply(),
+        '/overtime': (context) => OvertimeApply(),
+        '/claim': (context) => ClaimApply(),
+        '/message': (context) => Message()
+      },
+    ),
+  );
+}
 
 class MyApp extends StatelessWidget {
   // This widget is the root of your application.
@@ -22,7 +46,6 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home:LoadingPage(),
     );
   }
 }
