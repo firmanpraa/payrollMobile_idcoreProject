@@ -16,7 +16,7 @@ class _LoginPageState extends State<LoginPage> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[
             SizedBox(
-              height: 100,
+              height: 50,
             ),
             Image.asset(
               "images/payrollLogo.png",
@@ -36,7 +36,7 @@ class _LoginPageState extends State<LoginPage> {
                     child: new Text(
                       "EMPLOYEE SELF SERVICE",
                       style: new TextStyle(
-                          fontSize: 20.0,
+                          fontSize: 15.0,
                           color: Colors.white,
                           fontWeight: FontWeight.bold),
                     ),
@@ -77,7 +77,7 @@ class _LoginPageState extends State<LoginPage> {
                       children: <Widget>[
                         Container(
                           color: Color(0xff77A5F8),
-                          height: 150,
+                          height: 130,
                         ),
                         Container(
                           color: Color(0xff003B99),
@@ -90,7 +90,7 @@ class _LoginPageState extends State<LoginPage> {
                                 Padding(padding: EdgeInsets.only(top: 20.0)),
                                 Container(
                                   height: 50,
-                                  width: 350,
+                                  width: 300,
                                   child: RaisedButton(
                                     onPressed: () {
                                       Navigator.push(
@@ -123,7 +123,7 @@ class _LoginPageState extends State<LoginPage> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   SizedBox(
-                    height: 100,
+                    height: 70,
                   ),
                   Text(
                     'Don\'t have an account ?',

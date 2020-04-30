@@ -42,10 +42,10 @@ class _LoadingScreenState extends State<LoadingPage> {
               height: 100.0,
             ),
             SizedBox(
-              height: 300,
+              height: 200,
             ),
             Text(
-              'Loading...',
+              '... Loading ...',
               style: TextStyle(
                   fontFamily: 'OpenSans', fontWeight: FontWeight.bold, color: Colors.white),
             )

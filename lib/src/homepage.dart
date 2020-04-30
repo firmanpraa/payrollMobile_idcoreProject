@@ -45,8 +45,7 @@ class _homePageState extends State<HomePage> {
               padding: new EdgeInsets.only(top: 70.0, bottom: 20),
               child:  Image.asset(
                 "images/payrollLogo.png",
-                width: 150.0,
-                height: 100.0,
+                height: 80.0,
               ),
             ),
             new Container(
@@ -190,14 +189,14 @@ class dashMenu extends StatelessWidget {
       margin: EdgeInsets.all(5.0),
       child: InkWell(
         onTap: () => Navigator.pushNamed(context, route),
-        splashColor: Colors.amberAccent,
+        splashColor: Colors.blueAccent,
         child: Center(
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Image.asset(images, width: 60, height: 60,),
               SizedBox(height: 10,),
-              Text(title, style: new TextStyle(fontSize: 15.0, fontWeight: FontWeight.bold))
+              Text(title, style: new TextStyle(fontSize: 10.0, fontWeight: FontWeight.bold))
             ],
           ),
         ),
