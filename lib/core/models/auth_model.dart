@@ -2,15 +2,15 @@ class auth_model {
   String nik;
   String password;
   String token;
-  String status;
+  int codeRespon;
 
-  auth_model({this.token, this.nik, this.password, this.status});
+  auth_model({this.token, this.nik, this.password, this.codeRespon});
 
-  auth_model.fromJson(Map<String, dynamic> json) {
+  auth_model.fromJson(Map<String, dynamic> json, int code) {
     token = json['token'];
     nik = json['nik'];
     password = json['password'];
-    status = json['status'];
+    codeRespon = json['code'];
   
   }
 
@@ -19,7 +19,7 @@ class auth_model {
     data['token'] = this.token;
     data['nik'] = this.nik;
     data['password'] = this.password;
-    data['status'] = this.status;
+    data['code'] = this.codeRespon;
     return data;
   }
 }

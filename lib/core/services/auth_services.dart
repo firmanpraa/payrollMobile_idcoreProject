@@ -12,7 +12,7 @@ class AuthServices {
         data: FormData.fromMap(loginData),
         options: Options(headers: {"Accept" : "application/json"})
       );
-      return auth_model.fromJson(response.data);
+      return auth_model.fromJson(response.data, response.statusCode);
 
     }catch(e){
       print ("ERROR: " + e.toString());
