@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapppayrollauth/src/attendance.dart';
-import 'package:flutterapppayrollauth/src/claimApply.dart';
-import 'package:flutterapppayrollauth/src/customerVisit.dart';
-import 'package:flutterapppayrollauth/src/homepage.dart';
-import 'package:flutterapppayrollauth/src/leaveApply.dart';
-import 'package:flutterapppayrollauth/src/loadingPage.dart';
-import 'package:flutterapppayrollauth/src/message.dart';
-import 'package:flutterapppayrollauth/src/overtimeApply.dart';
+import 'package:flutterapppayrollauth/ui/attendance.dart';
+import 'package:flutterapppayrollauth/ui/claimApply.dart';
+import 'package:flutterapppayrollauth/ui/customerVisit.dart';
+import 'package:flutterapppayrollauth/ui/homepage.dart';
+import 'package:flutterapppayrollauth/ui/leaveApply.dart';
+import 'package:flutterapppayrollauth/ui/loadingPage.dart';
+import 'package:flutterapppayrollauth/ui/message.dart';
+import 'package:flutterapppayrollauth/ui/overtimeApply.dart';
 
 
 void main(List<String> args) {
@@ -16,6 +16,7 @@ void main(List<String> args) {
       initialRoute: '/',
       routes: <String, WidgetBuilder>{
         '/': (context) => LoadingPage(),
+        '/home': (context) => HomePage(),
         '/attendance': (context) => Attendance(),
         '/customer': (context) => CustomerVisit(),
         '/leave': (context) => LeaveApply(),

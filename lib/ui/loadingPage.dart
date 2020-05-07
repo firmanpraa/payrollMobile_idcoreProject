@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutterapppayrollauth/src/loginPage.dart';
+import 'package:flutterapppayrollauth/ui/loginPage.dart';
 import 'dart:async';
 
 class LoadingPage extends StatefulWidget {
