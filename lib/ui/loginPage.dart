@@ -39,18 +39,19 @@ class _LoginPageState extends State<LoginPage> {
       };
 
       var response = await AuthServices.login(data);
-      //print("token: " + response.token.toString());
-      if (response.codeRespon != null) {
+      if(response != null){
         if (response.codeRespon == 200 && response.token != null) {
           Navigator.pushNamedAndRemoveUntil(
               context, '/home', (Route<dynamic> routes) => false);
+//          iki dipindah
+          ToastUtils.show("Cek Login..");
+          ToastUtils.show("Selamat Datang");
         } else {
+//          toast error nik pasword salah
           ToastUtils.show("Silahkan cek nik/password");
         }
-        ToastUtils.show("Cek Login..");
-        ToastUtils.show("Selamat Datang");
-      } else {
-        ToastUtils.show('Periksa koneksi');
+      }else{
+//        error koneksi toast
       }
     } else {
       ToastUtils.show("Silahkan mengisi nik/passwrod ");

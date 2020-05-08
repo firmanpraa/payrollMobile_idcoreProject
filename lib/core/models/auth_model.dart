@@ -10,8 +10,8 @@ class auth_model {
     token = json['token'];
     nik = json['nik'];
     password = json['password'];
-    codeRespon = json['code'];
-  
+    // yaopo kih kok rung digenti gk usah json
+    codeRespon = code;
   }
 
   Map<String, dynamic> toJson() {
