@@ -10,6 +10,10 @@ class auth_model {
     token = json['token'];
     nik = json['nik'];
     password = json['password'];
+<<<<<<< HEAD
+=======
+    // yaopo kih kok rung digenti gk usah json
+>>>>>>> ec6c7691433b412cebc8f763bbd75059bf2cd833
     codeRespon = code;
   }
 
