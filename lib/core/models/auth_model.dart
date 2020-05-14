@@ -4,14 +4,13 @@ class auth_model {
   String token;
   int codeRespon;
 
-  auth_model({this.token, this.nik, this.password, this.codeRespon});
+  auth_model({this.token, this.nik, this.password});
 
   auth_model.fromJson(Map<String, dynamic> json, int code) {
     token = json['token'];
     nik = json['nik'];
     password = json['password'];
-    codeRespon = json['code'];
-  
+    codeRespon = code;
   }
 
   Map<String, dynamic> toJson() {
@@ -19,7 +18,6 @@ class auth_model {
     data['token'] = this.token;
     data['nik'] = this.nik;
     data['password'] = this.password;
-    data['code'] = this.codeRespon;
     return data;
   }
 }

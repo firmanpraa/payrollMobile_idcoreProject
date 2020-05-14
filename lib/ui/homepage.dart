@@ -1,39 +1,85 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'package:shared_preferences/shared_preferences.dart';
+import 'loginPage.dart';
 
 class HomePage extends StatefulWidget {
   _homePageState createState() => _homePageState();
 }
 
 class _homePageState extends State<HomePage> {
+  Future _cekLogin() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+
+    if (pref.getBool("isLogin") == false) {
+      Navigator.pushNamedAndRemoveUntil(
+          context, '/login', (Route<dynamic> routes) => false);
+    }
+  }
+
+  Future _logout() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    pref.setBool('isLoign', false);
+
+    Navigator.pushNamedAndRemoveUntil(
+        context, '/login', (Route<dynamic> routes) => false);
+  }
+
+  void initState() {
+    super.initState();
+    _cekLogin();
+  
+  }
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
-      bottomNavigationBar: new Theme(
-          data: Theme.of(context).copyWith(
-              // sets the background color of the `BottomNavigationBar`
-              canvasColor: Color(0xff00317C),
-              // sets the active color of the `BottomNavigationBar` if `Brightness` is light
-              primaryColor: Colors.white,
-              textTheme: Theme.of(context)
-                  .textTheme
-                  .copyWith(caption: new TextStyle(color: Colors.white))),
-          // sets the inactive color of the `BottomNavigationBar`
-          child: new BottomNavigationBar(
-              type: BottomNavigationBarType.fixed,
-              currentIndex: 0,
-              items: [
-                BottomNavigationBarItem(
-                    icon: new Icon(Icons.home), title: Text('Home')),
-                BottomNavigationBarItem(
-                    icon: new Icon(Icons.account_box), title: Text('Profile')),
-                BottomNavigationBarItem(
-                    icon: new Icon(Icons.settings), title: Text('Setting')),
-                BottomNavigationBarItem(
-                    icon: new Icon(Icons.exit_to_app), title: Text('Sign Out'))
-              ])),
+      bottomNavigationBar: Container(
+      height: 50,
+      margin: EdgeInsets.symmetric(vertical: 5, horizontal: 15),
+      child: Row(
+        children: <Widget>[
+          Container(
+            width: 80,
+            color: Color(0xff00317C),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[Icon(Icons.home, color: Colors.white), Text("Home", style: TextStyle(color: Colors.white))],
+            ),
+          ),
+          Container(
+            width: 80,
+            color: Color(0xff00317C),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[Icon(Icons.account_box, color: Colors.white), Text("Profil", style: TextStyle(color: Colors.white))],
+            ),
+          ),
+          Container(
+            width: 80,
+            color: Color(0xff00317C),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[Icon(Icons.settings, color: Colors.white), Text("Setting", style: TextStyle(color: Colors.white))],
+            ),
+          ),
+          Container(
+            width: 80,
+            color: Color(0xff00317C),
+            child:InkWell(
+              onTap: (){
+                _logout();
+              },
+              child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[Icon(Icons.exit_to_app, color: Colors.white), Text("Sign Out", style: TextStyle(color: Colors.white))],
+            ),
+            )
+          ),
+        ],
+      ),
+    ),
       backgroundColor: Color(0xff00317C),
       body: Container(
         color: Colors.white,
@@ -43,7 +89,7 @@ class _homePageState extends State<HomePage> {
             Container(
               color: Color(0xff00317C),
               padding: new EdgeInsets.only(top: 70.0, bottom: 20),
-              child:  Image.asset(
+              child: Image.asset(
                 "images/payrollLogo.png",
                 height: 80.0,
               ),
@@ -194,9 +240,17 @@ class dashMenu extends StatelessWidget {
           child: Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              Image.asset(images, width: 60, height: 60,),
-              SizedBox(height: 10,),
-              Text(title, style: new TextStyle(fontSize: 10.0, fontWeight: FontWeight.bold))
+              Image.asset(
+                images,
+                width: 60,
+                height: 60,
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Text(title,
+                  style: new TextStyle(
+                      fontSize: 10.0, fontWeight: FontWeight.bold))
             ],
           ),
         ),

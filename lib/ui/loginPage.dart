@@ -4,7 +4,6 @@ import 'package:flutterapppayrollauth/core/utils/toast_utils.dart';
 import 'package:flutterapppayrollauth/ui/widget/input_field.dart';
 import 'package:flutterapppayrollauth/ui/widget/primary_button.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-import 'package:http/http.dart' as http;
 
 class LoginPage extends StatefulWidget {
   _LoginPageState createState() => _LoginPageState();
@@ -13,6 +12,8 @@ class LoginPage extends StatefulWidget {
 class _LoginPageState extends State<LoginPage> {
   var nikController = TextEditingController();
   var passwordController = TextEditingController();
+
+  bool isLogin = false;
 
   savePref(String nik, String password) async {
     SharedPreferences pref = await SharedPreferences.getInstance();
@@ -31,6 +32,20 @@ class _LoginPageState extends State<LoginPage> {
     }
   }
 
+  void initState() {
+    super.initState();
+    _cekLogin();
+  }
+
+  Future _cekLogin() async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+
+    if (pref.getBool("isLogin")) {
+      Navigator.pushNamedAndRemoveUntil(
+          context, '/home', (Route<dynamic> routes) => false);
+    } else {}
+  }
+
   Future<void> prosesLogin() async {
     if (nikController.text.isNotEmpty && passwordController.text.isNotEmpty) {
       Map<String, dynamic> data = {
@@ -39,18 +54,28 @@ class _LoginPageState extends State<LoginPage> {
       };
 
       var response = await AuthServices.login(data);
-      //print("token: " + response.token.toString());
-      if (response.codeRespon != null) {
+      if (response != null) {
         if (response.codeRespon == 200 && response.token != null) {
+          SharedPreferences pref = await SharedPreferences.getInstance();
+          pref.setBool("isLogin", true);
+          pref.setString("token", response.token);
+          ToastUtils.show("Cek Login..");
           Navigator.pushNamedAndRemoveUntil(
               context, '/home', (Route<dynamic> routes) => false);
+//          iki dipindah
+
+          ToastUtils.show("Selamat Datang");
         } else {
+          SharedPreferences pref = await SharedPreferences.getInstance();
+          pref.setBool("isLogin", false);
+//          toast error nik pasword salah
           ToastUtils.show("Silahkan cek nik/password");
         }
-        ToastUtils.show("Cek Login..");
-        ToastUtils.show("Selamat Datang");
       } else {
-        ToastUtils.show('Periksa koneksi');
+        SharedPreferences pref = await SharedPreferences.getInstance();
+        pref.setBool("isLogin", false);
+//        error koneksi toast
+        ToastUtils.show("Koneksi error");
       }
     } else {
       ToastUtils.show("Silahkan mengisi nik/passwrod ");
