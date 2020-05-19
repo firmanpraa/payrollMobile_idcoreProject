@@ -54,11 +54,7 @@ class _LoginPageState extends State<LoginPage> {
       };
 
       var response = await AuthServices.login(data);
-<<<<<<< HEAD
       if (response != null) {
-=======
-      if(response != null){
->>>>>>> ec6c7691433b412cebc8f763bbd75059bf2cd833
         if (response.codeRespon == 200 && response.token != null) {
           SharedPreferences pref = await SharedPreferences.getInstance();
           pref.setBool("isLogin", true);
@@ -67,8 +63,6 @@ class _LoginPageState extends State<LoginPage> {
           Navigator.pushNamedAndRemoveUntil(
               context, '/home', (Route<dynamic> routes) => false);
 //          iki dipindah
-<<<<<<< HEAD
-
           ToastUtils.show("Selamat Datang");
         } else {
           SharedPreferences pref = await SharedPreferences.getInstance();
@@ -77,23 +71,11 @@ class _LoginPageState extends State<LoginPage> {
           ToastUtils.show("Silahkan cek nik/password");
         }
       } else {
-        SharedPreferences pref = await SharedPreferences.getInstance();
-        pref.setBool("isLogin", false);
 //        error koneksi toast
         ToastUtils.show("Koneksi error");
-=======
-          ToastUtils.show("Cek Login..");
-          ToastUtils.show("Selamat Datang");
-        } else {
-//          toast error nik pasword salah
-          ToastUtils.show("Silahkan cek nik/password");
-        }
-      }else{
-//        error koneksi toast
->>>>>>> ec6c7691433b412cebc8f763bbd75059bf2cd833
       }
     } else {
-      ToastUtils.show("Silahkan mengisi nik/passwrod ");
+      ToastUtils.show("Silahkan mengisi nik/password ");
     }
   }
 

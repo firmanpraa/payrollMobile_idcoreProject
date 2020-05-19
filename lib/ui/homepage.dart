@@ -19,7 +19,9 @@ class _homePageState extends State<HomePage> {
 
   Future _logout() async {
     SharedPreferences pref = await SharedPreferences.getInstance();
-    pref.setBool('isLoign', false);
+    //    typoo nemenn
+    pref.setBool('isLogin', false);
+    pref.setString("token", null);
 
     Navigator.pushNamedAndRemoveUntil(
         context, '/login', (Route<dynamic> routes) => false);
